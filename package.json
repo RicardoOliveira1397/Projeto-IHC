@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "NODE_ENV=development node server.js",
     "start": "NODE_ENV=production node server.js",
     "build": "next build",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,10 +16,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@devloco/create-react-wptheme-utils": "^3.4.1-wp.2",
     "@next/bundle-analyzer": "^9.3.5",
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.19.2",
     "babel-plugin-root-import": "^6.5.0",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.4",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-optipng": "^7.1.0",
     "imagemin-svgo": "^7.1.0",
