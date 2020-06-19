@@ -4,7 +4,7 @@ import Wrapper from './styles';
 import { Link } from '../../routes';
 
 const HomePage = () => {
-
+    
     useEffect(() => {
         fetch(`http://localhost/react-wordpress/wp-json/wp/v2/posts/5`)
         .then((respose) => respose.json())

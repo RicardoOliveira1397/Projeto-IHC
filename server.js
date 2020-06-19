@@ -17,10 +17,10 @@ const sitemapOptions = {
 app.prepare().then(() => {
     const server = express();
     server.get('/sitemap.xml', (req, res) => res.status(200).sendFile('sitemap.xml', sitemapOptions));
-    server.use('/wp-admin', createProxyMiddleware({
-        target: 'http://localhost/react-wordpress',
-        changeOrigin: true,
-    }));
+    // server.use('/wp-admin', createProxyMiddleware({
+    //     target: 'http://localhost/react-wordpress',
+    //     changeOrigin: true,
+    // }));
     server.use(handler, res => {
         res.setHeader("Cache-Control", "public, max-age=365d, immutable");
     }).listen(8090);
