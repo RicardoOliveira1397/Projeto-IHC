@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://agenciamk3digital.com.br/next-wp/",
   "scripts": {
     "dev": "NODE_ENV=development node server.js",
     "start": "NODE_ENV=production node server.js",

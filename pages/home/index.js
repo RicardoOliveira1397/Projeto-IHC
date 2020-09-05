@@ -20,7 +20,14 @@ const HomePage = () => {
   return (
     <Wrapper>
       <h1>HomePage</h1>
-      <div className="buttons"></div>
+      <div className="buttons">
+        <Link route="/contato">
+          <a>Contato</a>
+        </Link>
+        <Link route="/sobre-a-empresa">
+          <a>Sobre a empresa</a>
+        </Link>
+      </div>
     </Wrapper>
   );
 };

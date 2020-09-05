@@ -8,7 +8,7 @@ const handler = routes.getRequestHandler(app);
 const express = require("express");
 
 const sitemapOptions = {
-  root: __dirname + "/static/sitemap/",
+  root: __dirname + "/next-wp/static/sitemap/",
   headers: {
     "Content-Type": "text/xml;charset=UTF-8",
   },
