@@ -23,7 +23,7 @@ app.prepare().then(() => {
   server.use(
     "/wp-admin",
     createProxyMiddleware({
-      target: "http://localhost/template_wp/wp-admin",
+      target: "https://agenciamk3digital.com.br/next-wp/wp-admin",
       changeOrigin: true,
     })
   );
@@ -31,5 +31,5 @@ app.prepare().then(() => {
     .use(handler, (res) => {
       res.setHeader("Cache-Control", "public, max-age=365d, immutable");
     })
-    .listen(3000);
+    .listen(3050);
 });
