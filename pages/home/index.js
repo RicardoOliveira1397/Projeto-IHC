@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import withAnalytics from "~/hocs/withAnalytics";
-import { Wrapper, AboutCompany, AboutCompanyContent, Container, Tickets, TicketsContent, Ticket, TicketImg, TicketDescription, Icons, Icon, ContactForm, Form } from "./styles";
+import Wrapper, { AboutCompany, AboutCompanyContent, Container, Tickets, TicketsContent, Ticket, TicketImg, TicketDescription, Icons, Icon, ContactForm, Form } from "./styles";
 import { Link } from "../../routes";
 import Header from '../../components/Header';
 import Banner from '../../components/Banner';

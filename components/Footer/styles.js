@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export default Wrapper = styled.div`
   background: #f04662;
   width: 100%;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Img from 'static/images/bannerofc.png';
-import { Wrapper, Container } from './styles';
+import Wrapper, { Container } from './styles';
 
 function Banner() {
     var bgStyle = {

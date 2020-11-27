@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper, Container } from './styles';
+import Wrapper, { Container } from './styles';
 import Logo from 'static/images/logo-colorido.png';
 
 function Header({ showMenu }) {

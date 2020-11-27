@@ -13,7 +13,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
-import { Wrapper, Container } from "./styles";
+import Wrapper, { Container } from './styles';
 
 function Footer() {
   return (

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export default Wrapper = styled.div`
    width: 100%;
    /* height: 100vh; */
    background: linear-gradient(140deg, #49ecd2, #0b695e 89%);
