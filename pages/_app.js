@@ -10,7 +10,7 @@ export default class MyApp extends App {
     return (
       <Layout>
         <Head>
-          <title>Site institucional com SSR.</title>
+          <title>TRAVEL - Agência de viagens</title>
         </Head>
         <Component {...pageProps} />
       </Layout>

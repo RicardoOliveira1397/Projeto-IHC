@@ -33,7 +33,7 @@ export default class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          <meta name="description" content="Aqui vai a descrição do site." />
+          <meta name="description" content="Escolha seu próximo destino." />
           <meta http-equiv="content-language" content="pt-br" />
 
           {this.props.styleTags}

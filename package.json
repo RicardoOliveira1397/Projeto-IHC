@@ -17,6 +17,10 @@
   "license": "ISC",
   "dependencies": {
     "@devloco/create-react-wptheme-utils": "^3.4.1-wp.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.13",
     "@next/bundle-analyzer": "^9.3.5",
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.19.2",
