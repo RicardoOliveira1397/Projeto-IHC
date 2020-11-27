@@ -1,19 +1,33 @@
-import React from 'react';
-import Wrapper, { Container } from './styles';
+import React, { useCallback, useState } from 'react';
+import Wrapper, { Container, ResponsiveMenu } from './styles';
 import Logo from 'static/images/logo-colorido.png';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBars
+} from "@fortawesome/free-solid-svg-icons";
 
 function Header({ showMenu, onScrollTo }) {
+  const [openReponsiveMenu, setOpenResponsiveMenu] = useState(false);
+
+  const handleResponsiveMenu = useCallback(() => {
+    console.log("CLICOU NO MENU")
+    setOpenResponsiveMenu(!openReponsiveMenu);
+  }, [openReponsiveMenu]);
+
   return (
-    <Wrapper showMenu={showMenu}>
-        <Container>
-            <img src={Logo} />
-            <ul>
-                <li onClick={() => onScrollTo('top')}>INÍCIO</li>
-                <li onClick={() => onScrollTo('about_company')}>SOBRE A EMPRESA</li>
-                <li onClick={() => onScrollTo('travels')}>VIAGEM DOS SONHOS</li>
-                <li onClick={() => onScrollTo('contact')}>CONTATO</li>
-            </ul>
-        </Container>        
+    <Wrapper showMenu={showMenu} showResponsiveMenu={openReponsiveMenu}>
+      <ResponsiveMenu>
+        <FontAwesomeIcon icon={faBars} onClick={handleResponsiveMenu} />
+      </ResponsiveMenu>
+      <div className="container">
+        <img src={Logo} />
+        <ul>
+          <li onClick={() => onScrollTo('top')}>INÍCIO</li>
+          <li onClick={() => onScrollTo('about_company')}>SOBRE A EMPRESA</li>
+          <li onClick={() => onScrollTo('travels')}>VIAGEM DOS SONHOS</li>
+          <li onClick={() => onScrollTo('contact')}>CONTATO</li>
+        </ul>
+      </div>        
     </Wrapper>
   );
 }

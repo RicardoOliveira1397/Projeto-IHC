@@ -13,3 +13,32 @@ button:hover {
     cursor: pointer;
 }
 
+.container {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 992px;
+    }
+}
+@media (max-width: 992px) {
+    .container {
+        max-width: 768px;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        max-width: 576px;
+    }
+}
+@media (max-width: 576px) {
+    .container {
+        max-width: 335px;
+    }
+}
+

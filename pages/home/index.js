@@ -14,8 +14,15 @@ import Ticket2 from 'static/images/deserto.png';
 import Ticket3 from 'static/images/china.png';
 import Ticket4 from 'static/images/everest.png';
 
+import TicketIcon from 'static/images/ticket.png';
+
 import ContactBackground from 'static/images/contato-overlay.png';
 import Footer from "components/Footer";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUser
+} from "@fortawesome/free-solid-svg-icons";
 
 const HomePage = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -72,7 +79,7 @@ const HomePage = () => {
       <Header showMenu={showMenu} onScrollTo={handleScroll} />
       <Banner />
       <AboutCompany ref={aboutCompanyRef}>
-        <Container>
+        <div className="container">
           <AboutCompanyContent>
             <div>
               <h2>SOBRE A TRAVEL</h2>
@@ -94,17 +101,17 @@ const HomePage = () => {
               </Icon>
               <Icon>
                 <img src={Icon3} />
-                <h3>BAGAGEM</h3>
-                <p>Garantimos a segurança de suas bagagens.</p>
+                <h3>NOVOS HORIZONTES</h3>
+                <p>Desbrave o mundo com a TRAVEL.</p>
               </Icon>
             </Icons>
           </AboutCompanyContent>
-        </Container>
+        </div>
       </AboutCompany>
 
       <Tickets ref={travelsRef}>
         <h2>VIAGEM DOS SONHOS</h2>
-        <Container>
+        <div className="container">
           <TicketsContent>
             <Ticket>
               <TicketImg>
@@ -113,7 +120,8 @@ const HomePage = () => {
 
               <TicketDescription>
                 <h3>PRAIAS DO CARIBE</h3>
-                <p>R$ 3.500,00</p>
+                <p>R$ 10.500,00   <FontAwesomeIcon icon={faUser} />2 Pessoa(s)</p>
+                <button>COMPRAR</button>
               </TicketDescription>
             </Ticket>
 
@@ -124,7 +132,8 @@ const HomePage = () => {
 
               <TicketDescription>
                 <h3>DESERTO DO SAARA</h3>
-                <p>R$ 8.000,00</p>
+                <p>R$ 8.000,00   <FontAwesomeIcon icon={faUser} />1 Pessoa(s)</p>
+                <button>COMPRAR</button>
               </TicketDescription>
             </Ticket>
 
@@ -135,7 +144,8 @@ const HomePage = () => {
 
               <TicketDescription>
                 <h3>MURALHA DA CHINA</h3>
-                <p>R$ 2.000,00</p>
+                <p>R$ 5.000,00   <FontAwesomeIcon icon={faUser} />1 Pessoa(s)</p>
+                <button>COMPRAR</button>
               </TicketDescription>
             </Ticket>
             
@@ -146,22 +156,23 @@ const HomePage = () => {
 
               <TicketDescription>
                 <h3>EVEREST</h3>
-                <p>R$ 2.000,00</p>
+                <p>R$ 15.000,00   <FontAwesomeIcon icon={faUser} />1 Pessoa(s)</p>
+                <button>COMPRAR</button>
               </TicketDescription>
             </Ticket>
           </TicketsContent>
-        </Container>
+        </div>
       </Tickets>
 
       <ContactForm style={ContactBgStyle} ref={contactRef}>
-        <Container>
+        <div className="container">
           <Form>
 
           </Form>
-        </Container>
+        </div>
       </ContactForm>
 
-      <Footer />
+      <Footer onScrollTo={handleScroll} />
     </Wrapper>
   );
 };

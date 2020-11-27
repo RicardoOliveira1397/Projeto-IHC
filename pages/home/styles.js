@@ -12,7 +12,15 @@ const Wrapper = styled.div`
    h1 {
       color: #fff;
       font-size: 40px;
+      width: 100%;
+      text-align: center;
    }
+
+   @media(max-width: 768px) {
+      h1 {
+         font-size: 30px;
+      }
+   }  
 
    .buttons {
       display: flex;
@@ -40,7 +48,7 @@ const Wrapper = styled.div`
 export default Wrapper;
 
 export const AboutCompany = styled.div`
-   height: 500px;
+   height: auto;
    width: 100%;
    background: #fff;
    padding: 40px 0;
@@ -52,6 +60,21 @@ export const AboutCompany = styled.div`
 export const AboutCompanyContent = styled.div`
    display: flex;
    color: #313131;
+   justify-content: space-between;
+   width: 100%;
+
+   @media(max-width: 992px) {
+      flex-direction: column;
+      align-items: center;
+
+      h2 {
+         text-align: center;
+      }
+
+      p {
+         max-width: 100% !important;
+      }
+   }
 
    h2 {
       position: relative;
@@ -71,15 +94,17 @@ export const AboutCompanyContent = styled.div`
    p {
       text-align: justify;
       line-height: 35px;
+      max-width: 600px;
    }
 `;
 
 export const Icons = styled.div`
+   /* max-height: calc(550px - 80px); */
+   max-width: 630px;
    display: flex; 
-   margin-left: 60px;
    justify-content: center;
-   max-height: calc(550px - 80px);
    width: 100%;
+   flex-wrap: wrap;
 `;
 
 export const Icon = styled.div`
@@ -89,6 +114,15 @@ export const Icon = styled.div`
    flex-direction: column;
    margin: 0 30px;
    width: 150px;
+
+   @media(max-width: 768px) {
+      width: 100%;
+      margin: 10px 0;
+
+      img {
+         width: 50px;
+      }
+   }
 
    img {
       width: 80px;
@@ -141,16 +175,19 @@ export const TicketsContent = styled.div`
    display: flex;
    width: 100%;
    justify-content: space-between;
+
+   @media(max-width: 768px) {
+      flex-direction: column;
+   }  
 `;
 
 export const Ticket = styled.div`
    background: #fff;
-   height: calc(450px - 80px);
+   /* height: calc(450px - 80px); */
    box-sizing: border-box;
    border-radius: 5px;
    box-shadow: 0 3px 6px rgb(0 0 0 / 0.25);
    width: 300px;
-   cursor: pointer;
    overflow: hidden;
 
    img {
@@ -166,26 +203,154 @@ export const Ticket = styled.div`
       }
    }
 
-   h3 {
-      padding: 0 20px;
-      color: #F57F31;
-      text-transform: uppercase;
+   &:nth-child(1) {
+      h3 {
+         color: #ee2c7a;
+      }
+
+      p {
+         color: #313131;
+
+         svg {
+            color: #ee2c7a;
+         }
+      }
+
+      button {
+         color: #ee2c7a;
+         border: 2px solid #ee2c7a;
+
+         &:hover {
+            background: #ee2c7a;
+         }
+      }
    }
 
-   p {
-      padding: 0 20px;
-      color: #313131;
-      /* font-weight: 600; */
+   &:nth-child(2) {
+      h3 {
+         color: #f04662;
+      }
+
+      p {
+         color: #313131;
+
+         svg {
+            color: #f04662;
+         }
+      }
+
+      button {
+         color: #f04662;
+         border: 2px solid #f04662;
+
+         &:hover {
+            background: #f04662;
+         }
+      }
    }
+
+   &:nth-child(3) {
+      h3 {
+         color: #f15358;
+      }
+
+      p {
+         color: #313131;
+
+         svg {
+            color: #f15358;
+         }
+      }
+
+      button {
+         color: #f15358;
+         border: 2px solid #f15358;
+
+         &:hover {
+            background: #f15358;
+         }
+      }
+   }
+
+   &:nth-child(4) {
+      h3 {
+         color: #F57F31;
+      }
+
+      p {
+         color: #313131;
+
+         svg {
+            color: #F57F31;
+         }
+      }
+
+      button {
+         color: #F57F31;
+         border: 2px solid #F57F31;
+         
+         &:hover {
+            background: #F57F31;
+         }
+      }
+   }   
+
+   @media(max-width: 768px) {
+      width: 100%;
+
+      margin: 10px 0;
+   }  
 `;
 
 export const TicketImg = styled.div`
    overflow: hidden;
    width: 300px;
    height: 260px;
+
+   @media(max-width: 768px) {
+      img {
+         width: 100%;
+      }
+      
+      width: 100%;
+   }  
 `;
 
 export const TicketDescription = styled.div`
+   padding: 20px;
+   box-sizing: border-box;
+
+   h3 {
+      font-size: 15px;
+      margin: 0;
+      text-transform: uppercase;
+
+      img {
+         width: 30px;
+      }
+   }
+
+   p {
+      margin: 10px 0;
+
+      svg {
+         width: 30px !important;
+      }
+   }
+
+   button {
+      font-weight: 600;
+      padding: 8px 10px;
+      background: transparent;
+      border-radius: 5px;
+      font-size: 13px;
+      width: 100%;
+      transition: 0.8s;
+
+      &:hover {
+         color: #fff;
+      }
+   }
 `;
 
 export const Container = styled.div`

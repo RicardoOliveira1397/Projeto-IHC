@@ -7,6 +7,11 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     text-align: center;
+
+    @media (max-width: 768px) {
+        background-position-x: 61%;
+        margin-top: 50px;
+    }
 `;
 
 export default Wrapper;

@@ -12,9 +12,9 @@ function Banner() {
     
     return (
         <Wrapper style={bgStyle}>
-            <Container>
+            <div className="container">
                 <h1>ENCONTRE SEU PRÓXIMO DESTINO</h1>
-            </Container>
+            </div>
         </Wrapper>
     );
 }

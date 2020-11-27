@@ -4,7 +4,7 @@ const Wrapper = styled.div`
   background: #f04662;
   width: 100%;
 
-  .container {
+  .content-container {
     display: flex;
     flex: 1;
     height: 100%;
@@ -49,6 +49,7 @@ const Wrapper = styled.div`
           text-decoration: none;
           line-height: 20px;
           margin-bottom: 5px;
+          cursor: pointer;
         }
 
         p svg,
