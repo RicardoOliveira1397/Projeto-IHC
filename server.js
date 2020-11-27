@@ -1,7 +1,6 @@
 const { createServer } = require("http");
 const next = require("next");
 const routes = require("./routes");
-const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const app = next({ dev: process.env.NODE_ENV !== "production" });
 const handler = routes.getRequestHandler(app);
@@ -20,13 +19,7 @@ app.prepare().then(() => {
   server.get("/sitemap.xml", (req, res) => {
     res.status(200).sendFile("sitemap.xml", sitemapOptions);
   });
-  server.use(
-    "/wp-admin",
-    createProxyMiddleware({
-      target: "https://agenciamk3digital.com.br/next-wp/wp-admin",
-      changeOrigin: true,
-    })
-  );
+
   server
     .use(handler, (res) => {
       res.setHeader("Cache-Control", "public, max-age=365d, immutable");

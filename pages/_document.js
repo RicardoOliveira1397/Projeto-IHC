@@ -27,7 +27,7 @@ export default class MyDocument extends Document {
             sizes="512x512"
             href="%PUBLIC_URL%/icon512.png"
           />
-          <link rel="shortcut icon" href="/next-wp/static/favicon.ico" />
+          <link rel="shortcut icon" href="/static/favicon.ico" />
 
           <meta
             name="viewport"
@@ -37,7 +37,7 @@ export default class MyDocument extends Document {
           <meta http-equiv="content-language" content="pt-br" />
 
           {this.props.styleTags}
-          <link href="/next-wp/static/styles.css" rel="stylesheet" />
+          <link href="/static/styles.css" rel="stylesheet" />
           <link
             href="https://fonts.googleapis.com/css?family=Montserrat:Extra-Bold, Thin"
             rel="stylesheet"

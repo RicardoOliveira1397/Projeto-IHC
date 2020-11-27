@@ -15,8 +15,6 @@ module.exports = withBundleAnalyzer(
         autoPrerender: false,
       },
       compress: true,
-      basePath: "/next-wp",
-      assetPrefix: "/next-wp",
     })
   )
 );
