@@ -90,8 +90,8 @@ function Footer() {
       <div className="copyright">
         <p>
           © 2020 TRAVEL - Todos os direitos reservados | Desenvolvido por{" "}
-          <a href="mk3digital.com.br" target="_blank">
-            Grupo mlkote
+          <a target="_blank">
+            Grupo Mlkote
           </a>
         </p>
       </div>

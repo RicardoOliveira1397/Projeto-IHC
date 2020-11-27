@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default Wrapper = styled.div`
+const Wrapper = styled.div`
    width: 100%;
    /* height: 100vh; */
    background: linear-gradient(140deg, #49ecd2, #0b695e 89%);
@@ -36,6 +36,8 @@ export default Wrapper = styled.div`
       color: #1cb3a1;
    }
 `;
+
+export default Wrapper;
 
 export const AboutCompany = styled.div`
    height: 500px;

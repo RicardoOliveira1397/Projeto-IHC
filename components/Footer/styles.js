@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default Wrapper = styled.div`
+const Wrapper = styled.div`
   background: #f04662;
   width: 100%;
 
@@ -146,6 +146,8 @@ export default Wrapper = styled.div`
     }
   }
 `;
+
+export default Wrapper;
 
 export const Container = styled.div`
     max-width: 1280px;
