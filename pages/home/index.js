@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useCallback, useState, useRef } from "react";
 import withAnalytics from "~/hocs/withAnalytics";
 import Wrapper, { AboutCompany, AboutCompanyContent, Container, Tickets, TicketsContent, Ticket, TicketImg, TicketDescription, Icons, Icon, ContactForm, Form } from "./styles";
 import { Link } from "../../routes";
@@ -27,7 +27,33 @@ const HomePage = () => {
     backgroundSize: 'cover'
   };
 
+  const aboutCompanyRef = useRef();
+  const travelsRef = useRef();
+  const contactRef = useRef();
+  var currentRef = null;
+
+  const handleScroll = useCallback(async (value) => {
+    if (value !== "top") {
+      currentRef = await scrolls[value];
+      currentRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+    } else {
+      window.scroll({top: 0, left: 0, behavior: 'smooth' })
+    }    
+  }, [currentRef, aboutCompanyRef, travelsRef, contactRef]);
+  
+  const scrolls = {
+    about_company: aboutCompanyRef,
+    travels: travelsRef,
+    contact: contactRef,
+  };
+
   useEffect(() => {
+    if (window.pageYOffset > 0) {
+      setShowMenu(true);
+    } else {
+      setShowMenu(false);
+    }
+
     const onScroll = e => {
       if (e.target.documentElement.scrollTop > 0) {
         setShowMenu(true);
@@ -43,9 +69,9 @@ const HomePage = () => {
 
   return (
     <Wrapper>
-      <Header showMenu={showMenu} />
+      <Header showMenu={showMenu} onScrollTo={handleScroll} />
       <Banner />
-      <AboutCompany>
+      <AboutCompany ref={aboutCompanyRef}>
         <Container>
           <AboutCompanyContent>
             <div>
@@ -76,7 +102,7 @@ const HomePage = () => {
         </Container>
       </AboutCompany>
 
-      <Tickets>
+      <Tickets ref={travelsRef}>
         <h2>VIAGEM DOS SONHOS</h2>
         <Container>
           <TicketsContent>
@@ -127,7 +153,7 @@ const HomePage = () => {
         </Container>
       </Tickets>
 
-      <ContactForm style={ContactBgStyle}>
+      <ContactForm style={ContactBgStyle} ref={contactRef}>
         <Container>
           <Form>
 
