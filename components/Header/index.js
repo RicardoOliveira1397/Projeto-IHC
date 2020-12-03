@@ -25,7 +25,7 @@ function Header({ showMenu, onScrollTo }) {
           <li onClick={() => onScrollTo('top')}>INÍCIO</li>
           <li onClick={() => onScrollTo('about_company')}>SOBRE A EMPRESA</li>
           <li onClick={() => onScrollTo('travels')}>VIAGEM DOS SONHOS</li>
-          <li onClick={() => onScrollTo('contact')}>CONTATO</li>
+          <li onClick={() => onScrollTo('contact')}>FALE CONOSCO</li>
         </ul>
       </div>        
     </Wrapper>

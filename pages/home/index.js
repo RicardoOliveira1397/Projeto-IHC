@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useState, useRef } from "react";
 import withAnalytics from "~/hocs/withAnalytics";
-import Wrapper, { AboutCompany, AboutCompanyContent, Container, Tickets, TicketsContent, Ticket, TicketImg, TicketDescription, Icons, Icon, ContactForm, Form } from "./styles";
+import Wrapper, { AboutCompany, AboutCompanyContent, Container, Tickets, TicketsContent, Ticket, TicketImg, TicketDescription, Icons, Icon, ContactForm, FormButtons, FormButton, ToastMessage } from "./styles";
 import { Link } from "../../routes";
 import Header from '../../components/Header';
 import Banner from '../../components/Banner';
@@ -16,8 +16,13 @@ import Ticket4 from 'static/images/everest.png';
 
 import TicketIcon from 'static/images/ticket.png';
 
+import { Form, Input, Textarea } from "@rocketseat/unform";
+
 import ContactBackground from 'static/images/contato-overlay.png';
 import Footer from "components/Footer";
+
+import api from "../../services/api";
+import { telMask } from "../../services/mask";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -26,6 +31,12 @@ import {
 
 const HomePage = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [phone, setPhone] = useState("");
+
+  const formRef = useRef(null);
 
   var ContactBgStyle = {
     backgroundImage: `url(${ContactBackground})`,
@@ -44,15 +55,32 @@ const HomePage = () => {
       currentRef = await scrolls[value];
       currentRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
     } else {
-      window.scroll({top: 0, left: 0, behavior: 'smooth' })
-    }    
+      window.scroll({ top: 0, left: 0, behavior: 'smooth' })
+    }
   }, [currentRef, aboutCompanyRef, travelsRef, contactRef]);
-  
+
   const scrolls = {
     about_company: aboutCompanyRef,
     travels: travelsRef,
     contact: contactRef,
   };
+
+  const handleSubmit = useCallback(async (data, { resetForm }) => {
+    setLoading(true);
+
+    try {
+      await api.post("/contact", data);
+      setSuccess(true);
+      setError(false);
+      setLoading(false);
+      setPhone("");
+      resetForm();
+    } catch (error) {
+      setSuccess(false);
+      setError(true);
+      setLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
     if (window.pageYOffset > 0) {
@@ -78,6 +106,7 @@ const HomePage = () => {
     <Wrapper>
       <Header showMenu={showMenu} onScrollTo={handleScroll} />
       <Banner />
+
       <AboutCompany ref={aboutCompanyRef}>
         <div className="container">
           <AboutCompanyContent>
@@ -121,7 +150,7 @@ const HomePage = () => {
               <TicketDescription>
                 <h3>PRAIAS DO CARIBE</h3>
                 <p>R$ 10.500,00   <FontAwesomeIcon icon={faUser} />2 Pessoa(s)</p>
-                <button>COMPRAR</button>
+                <button onClick={() => alert('Em breve!')}>COMPRAR</button>
               </TicketDescription>
             </Ticket>
 
@@ -133,7 +162,7 @@ const HomePage = () => {
               <TicketDescription>
                 <h3>DESERTO DO SAARA</h3>
                 <p>R$ 8.000,00   <FontAwesomeIcon icon={faUser} />1 Pessoa(s)</p>
-                <button>COMPRAR</button>
+                <button onClick={() => alert('Em breve!')}>COMPRAR</button>
               </TicketDescription>
             </Ticket>
 
@@ -145,10 +174,10 @@ const HomePage = () => {
               <TicketDescription>
                 <h3>MURALHA DA CHINA</h3>
                 <p>R$ 5.000,00   <FontAwesomeIcon icon={faUser} />1 Pessoa(s)</p>
-                <button>COMPRAR</button>
+                <button onClick={() => alert('Em breve!')}>COMPRAR</button>
               </TicketDescription>
             </Ticket>
-            
+
             <Ticket>
               <TicketImg>
                 <img src={Ticket4} />
@@ -157,7 +186,7 @@ const HomePage = () => {
               <TicketDescription>
                 <h3>EVEREST</h3>
                 <p>R$ 15.000,00   <FontAwesomeIcon icon={faUser} />1 Pessoa(s)</p>
-                <button>COMPRAR</button>
+                <button onClick={() => alert('Em breve!')}>COMPRAR</button>
               </TicketDescription>
             </Ticket>
           </TicketsContent>
@@ -165,9 +194,47 @@ const HomePage = () => {
       </Tickets>
 
       <ContactForm style={ContactBgStyle} ref={contactRef}>
-        <div className="container">
-          <Form>
+        <h2>FALE CONOSCO</h2>
 
+        <div className="container">
+          <Form onSubmit={handleSubmit}>
+
+            {success && (
+              <ToastMessage success={true}>
+                <p>Formulário enviado com sucesso!</p>
+                <p className="close" onClick={() => setSuccess(false)}>
+                  X
+                </p>
+              </ToastMessage>
+            )}
+
+            {error && (
+              <ToastMessage success={false}>
+                <p>Erro ao enviar formulário, tente novamente.</p>
+                <p className="close" onClick={() => setError(false)}>
+                  X
+                </p>
+              </ToastMessage>
+            )}
+
+            <Input name="name" placeholder="Nome" required autoComplete={false} />
+            <Input name="email" placeholder="E-mail" required autoComplete={false} />
+            <Input
+              name="phone"
+              type="tel"
+              placeholder="Telefone"
+              required
+              value={phone}
+              onChange={async (e) => {
+                setPhone(await telMask(e.target.value));
+              }}
+              autoComplete={false}
+            />
+            <Input name="subject" placeholder="Assunto" required autoComplete={false} />
+            <Textarea name="message" placeholder="Mensagem" className="textarea" autoComplete={false} />
+            <FormButtons>
+              <FormButton disabled={loading}>{loading ? "Enviando...":"Enviar"}</FormButton>
+            </FormButtons>
           </Form>
         </div>
       </ContactForm>

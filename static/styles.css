@@ -32,6 +32,10 @@ button:hover {
     }
 }
 @media (max-width: 768px) {
+    .success-message, .error-message {
+        width: 100% !important;
+    }
+
     .container {
         max-width: 576px;
     }

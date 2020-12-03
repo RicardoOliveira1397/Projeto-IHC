@@ -64,7 +64,7 @@ function Footer({ onScrollTo }) {
                 <a>Viagem dos sonhos</a>
               </li>
               <li onClick={() => onScrollTo('contact')}>
-                <a>Contato</a>
+                <a>Fale conosco</a>
               </li>
             </div>
             <div className="col">
