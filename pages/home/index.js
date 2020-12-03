@@ -102,6 +102,14 @@ const HomePage = () => {
     return () => window.removeEventListener("scroll", onScroll);
   });
 
+  useEffect(() => {
+    const isBrowser = typeof window !== "undefined";
+    const WOW = isBrowser ? require("wowjs") : undefined;
+    new WOW.WOW({
+      live: false,
+    }).init();
+  }, []);
+
   return (
     <Wrapper>
       <Header showMenu={showMenu} onScrollTo={handleScroll} />
@@ -110,7 +118,7 @@ const HomePage = () => {
       <AboutCompany ref={aboutCompanyRef}>
         <div className="container">
           <AboutCompanyContent>
-            <div>
+            <div className="wow fadeInLeft">
               <h2>SOBRE A TRAVEL</h2>
               <p>A TRAVEL faz tudo por uma boa viagem. Por isso trabalha para transformar essa experiência na melhor conquista de sua vida, através de novas tendências e ampla rede de produtos e serviços turísticos. É essa forma de pensar que estabelece a TRAVEL como a maior operadora de turismo da América Latina.
                 O comprometimento social, a solidez e a inovação propiciaram notoriedade e visibilidade junto ao público.</p>
@@ -118,17 +126,17 @@ const HomePage = () => {
 
 
             <Icons>
-              <Icon>
+              <Icon className="wow fadeInUp">
                 <img src={Icon1} />
                 <h3>ILHAS PARADISÍACAS</h3>
                 <p>Faça a viagem dos seus sonhos com a TRAVEL.</p>
               </Icon>
-              <Icon>
+              <Icon className="wow fadeInDown" data-wow-delay=".3s">
                 <img src={Icon2} />
                 <h3>DISPONIBILIDADE</h3>
                 <p>Conte conosco a qualquer momento do dia.</p>
               </Icon>
-              <Icon>
+              <Icon className="wow fadeInUp" data-wow-delay=".7s">
                 <img src={Icon3} />
                 <h3>NOVOS HORIZONTES</h3>
                 <p>Desbrave o mundo com a TRAVEL.</p>
@@ -139,10 +147,10 @@ const HomePage = () => {
       </AboutCompany>
 
       <Tickets ref={travelsRef}>
-        <h2>VIAGEM DOS SONHOS</h2>
+        <h2 className="wow fadeInLeft">VIAGEM DOS SONHOS</h2>
         <div className="container">
           <TicketsContent>
-            <Ticket>
+            <Ticket className="wow fadeInDown">
               <TicketImg>
                 <img src={Ticket1} />
               </TicketImg>
@@ -154,7 +162,7 @@ const HomePage = () => {
               </TicketDescription>
             </Ticket>
 
-            <Ticket>
+            <Ticket className="wow fadeInUp" data-wow-delay=".3s">
               <TicketImg>
                 <img src={Ticket2} />
               </TicketImg>
@@ -166,7 +174,7 @@ const HomePage = () => {
               </TicketDescription>
             </Ticket>
 
-            <Ticket>
+            <Ticket className="wow fadeInDown" data-wow-delay=".6s">
               <TicketImg>
                 <img src={Ticket3} />
               </TicketImg>
@@ -178,7 +186,7 @@ const HomePage = () => {
               </TicketDescription>
             </Ticket>
 
-            <Ticket>
+            <Ticket className="wow fadeInUp" data-wow-delay=".9s">
               <TicketImg>
                 <img src={Ticket4} />
               </TicketImg>
@@ -194,7 +202,7 @@ const HomePage = () => {
       </Tickets>
 
       <ContactForm style={ContactBgStyle} ref={contactRef}>
-        <h2>FALE CONOSCO</h2>
+        <h2 className="wow fadeInUp">FALE CONOSCO</h2>
 
         <div className="container">
           <Form onSubmit={handleSubmit}>
@@ -217,9 +225,10 @@ const HomePage = () => {
               </ToastMessage>
             )}
 
-            <Input name="name" placeholder="Nome" required autoComplete={false} />
-            <Input name="email" placeholder="E-mail" required autoComplete={false} />
+            <Input className="wow fadeInUp" name="name" placeholder="Nome" required autoComplete={false} />
+            <Input className="wow fadeInUp" data-wow-delay=".2s" name="email" placeholder="E-mail" required autoComplete={false} />
             <Input
+              className="wow fadeInUp" data-wow-delay=".4s"
               name="phone"
               type="tel"
               placeholder="Telefone"
@@ -230,10 +239,10 @@ const HomePage = () => {
               }}
               autoComplete={false}
             />
-            <Input name="subject" placeholder="Assunto" required autoComplete={false} />
-            <Textarea name="message" placeholder="Mensagem" className="textarea" autoComplete={false} />
+            <Input className="wow fadeInUp" data-wow-delay=".6s" name="subject" placeholder="Assunto" required autoComplete={false} />
+            <Textarea className="wow fadeInUp" data-wow-delay=".8s" name="message" placeholder="Mensagem" className="textarea" autoComplete={false} />
             <FormButtons>
-              <FormButton disabled={loading}>{loading ? "Enviando...":"Enviar"}</FormButton>
+              <FormButton className="wow fadeInUp" data-wow-delay="1s" disabled={loading}>{loading ? "Enviando...":"Enviar"}</FormButton>
             </FormButtons>
           </Form>
         </div>

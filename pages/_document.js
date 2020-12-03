@@ -28,7 +28,15 @@ export default class MyDocument extends Document {
             href="%PUBLIC_URL%/icon512.png"
           />
           <link rel="shortcut icon" href="/static/favicon.ico" />
-
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+          />
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css"
+          ></link>
+          
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"

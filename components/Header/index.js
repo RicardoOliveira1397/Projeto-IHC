@@ -10,7 +10,6 @@ function Header({ showMenu, onScrollTo }) {
   const [openReponsiveMenu, setOpenResponsiveMenu] = useState(false);
 
   const handleResponsiveMenu = useCallback(() => {
-    console.log("CLICOU NO MENU")
     setOpenResponsiveMenu(!openReponsiveMenu);
   }, [openReponsiveMenu]);
 
