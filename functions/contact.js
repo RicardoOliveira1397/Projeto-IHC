@@ -16,7 +16,7 @@ exports.handler = async function (data) {
       to: `plinio.desenvolvimento@gmail.com, ${data.email}`, // list of receivers
       subject: "Novo contato", // Subject line
       text: data.subject, // plain text body
-      html: Contact(`
+      html: `
       <table style="border-collapse: collapse; background: #eee;" align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
           <tr>
           <td style="padding: 35px 0 0 0;" align="center">
@@ -50,6 +50,6 @@ exports.handler = async function (data) {
           </td>
           </tr>
       </table>      
-      `), // html body
+      `, // html body
     });
 }
