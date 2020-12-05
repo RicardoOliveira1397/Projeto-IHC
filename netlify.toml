@@ -3,9 +3,8 @@
 [build]
   command = "npm run build && npm run export"
   publish = "out"
-
-[build]
   functions = "functions"
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
