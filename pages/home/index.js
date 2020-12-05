@@ -204,7 +204,8 @@ const HomePage = () => {
         <h2 className="wow fadeInUp">FALE CONOSCO</h2>
 
         <div className="container">
-          <Form onSubmit={handleSubmit} data-netlify="true">
+          {/* <Form onSubmit={handleSubmit}> */}
+          <form method="POST" data-netlify="true">
 
             {success && (
               <ToastMessage success={true}>
@@ -243,7 +244,7 @@ const HomePage = () => {
             <FormButtons>
               <FormButton className="wow fadeInUp" data-wow-delay="1s" disabled={loading}>{loading ? "Enviando..." : "Enviar"}</FormButton>
             </FormButtons>
-          </Form>
+          </form>
         </div>
       </ContactForm>
 
