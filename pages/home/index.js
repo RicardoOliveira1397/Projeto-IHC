@@ -204,7 +204,7 @@ const HomePage = () => {
         <h2 className="wow fadeInUp">FALE CONOSCO</h2>
 
         <div className="container">
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} data-netlify="true">
 
             {success && (
               <ToastMessage success={true}>
