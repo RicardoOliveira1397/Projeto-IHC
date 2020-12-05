@@ -26,7 +26,7 @@ app.prepare().then(() => {
     .use(handler, (res) => {
       res.setHeader("Cache-Control", "public, max-age=365d, immutable");
     })
-    .listen(3000);
+    .listen(3070);
 });
 
 
@@ -97,4 +97,4 @@ function Contact(data) {
     `;
 }
 
-api.listen(3001, "0.0.0.0", () => console.log("API funcionando na porta 3001"));
+api.listen(3071, "0.0.0.0", () => console.log("API funcionando na porta 3001"));

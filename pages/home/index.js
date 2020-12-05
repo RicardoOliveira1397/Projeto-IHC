@@ -36,8 +36,6 @@ const HomePage = () => {
   const [success, setSuccess] = useState(false);
   const [phone, setPhone] = useState("");
 
-  const formRef = useRef(null);
-
   var ContactBgStyle = {
     backgroundImage: `url(${ContactBackground})`,
     backgroundAttachment: 'fixed',
@@ -69,11 +67,12 @@ const HomePage = () => {
     setLoading(true);
 
     try {
-      await api.post("/contact", data);
+      await api.post("/api/contact", data);
       setSuccess(true);
       setError(false);
       setLoading(false);
       setPhone("");
+      // await ContactEmail(data);
       resetForm();
     } catch (error) {
       setSuccess(false);
@@ -242,7 +241,7 @@ const HomePage = () => {
             <Input className="wow fadeInUp" data-wow-delay=".6s" name="subject" placeholder="Assunto" required autoComplete={false} />
             <Textarea className="wow fadeInUp" data-wow-delay=".8s" name="message" placeholder="Mensagem" className="textarea" autoComplete={false} />
             <FormButtons>
-              <FormButton className="wow fadeInUp" data-wow-delay="1s" disabled={loading}>{loading ? "Enviando...":"Enviar"}</FormButton>
+              <FormButton className="wow fadeInUp" data-wow-delay="1s" disabled={loading}>{loading ? "Enviando..." : "Enviar"}</FormButton>
             </FormButtons>
           </Form>
         </div>
