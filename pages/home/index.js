@@ -22,6 +22,7 @@ import ContactBackground from 'static/images/contato-overlay.png';
 import Footer from "components/Footer";
 
 import api from "../../services/api";
+import axios from 'axios';
 import { telMask } from "../../services/mask";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -67,19 +68,7 @@ const HomePage = () => {
     setLoading(true);
 
     try {
-
-      let formData = new FormData(data)
-      fetch('/', {
-        method: 'POST',
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      }).then(() => {
-
-      }).catch((error) => {
-        alert(error)
-      })
-
-      // await api.post("/api/contact", data);
+      await axios.post("/api/contact", data);
       setSuccess(true);
       setError(false);
       setLoading(false);
@@ -216,8 +205,7 @@ const HomePage = () => {
         <h2 className="wow fadeInUp">FALE CONOSCO</h2>
 
         <div className="container">
-          {/* <Form onSubmit={handleSubmit}> */}
-          <form name="contact" method="POST" data-netlify="true">
+          <Form onSubmit={handleSubmit}>
 
             {success && (
               <ToastMessage success={true}>
@@ -237,11 +225,11 @@ const HomePage = () => {
               </ToastMessage>
             )}
 
-            <Input className="wow fadeInUp" name="nome" placeholder="Nome" required autoComplete={false} />
+            <Input className="wow fadeInUp" name="name" placeholder="Nome" required autoComplete={false} />
             <Input className="wow fadeInUp" data-wow-delay=".2s" name="email" placeholder="E-mail" required autoComplete={false} />
             <Input
               className="wow fadeInUp" data-wow-delay=".4s"
-              name="telefone"
+              name="phone"
               type="tel"
               placeholder="Telefone"
               required
@@ -251,12 +239,12 @@ const HomePage = () => {
               }}
               autoComplete={false}
             />
-            <Input className="wow fadeInUp" data-wow-delay=".6s" name="assunto" placeholder="Assunto" required autoComplete={false} />
-            <Textarea className="wow fadeInUp" data-wow-delay=".8s" name="mensagem" placeholder="Mensagem" className="textarea" autoComplete={false} />
+            <Input className="wow fadeInUp" data-wow-delay=".6s" name="subject" placeholder="Assunto" required autoComplete={false} />
+            <Textarea className="wow fadeInUp" data-wow-delay=".8s" name="message" placeholder="Mensagem" className="textarea" autoComplete={false} />
             <FormButtons>
-              <FormButton type="submit" className="wow fadeInUp" data-wow-delay="1s" disabled={loading}>{loading ? "Enviando..." : "Enviar"}</FormButton>
+              <FormButton className="wow fadeInUp" data-wow-delay="1s" disabled={loading}>{loading ? "Enviando..." : "Enviar"}</FormButton>
             </FormButtons>
-          </form>
+          </Form>
         </div>
       </ContactForm>
 
