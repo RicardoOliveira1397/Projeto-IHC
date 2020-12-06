@@ -139,7 +139,7 @@ const HomePage = () => {
               <Icon className="wow fadeInUp" data-wow-delay=".7s">
                 <img src={Icon3} />
                 <h3>NOVOS HORIZONTES</h3>
-                <p>Desbrave o mundo com a TRAVEL.</p>
+                <p>Desbrave o mundo com TRAVEL.</p>
               </Icon>
             </Icons>
           </AboutCompanyContent>
